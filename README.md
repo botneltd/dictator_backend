@@ -1,7 +1,7 @@
 # Dictator 
 Freedom to dictate!
 
-Reference webhook receiver for the [Dictator](https://dictator.media) app. It accepts `POST` JSON from Dictator, validates `Authorization: Bearer`, logs each event in detail, and saves audio attachments to disk.
+Reference webhook receiver for the [Dictator](https://play.google.com/store/apps/details?id=media.dictator) app ([Google Play](https://play.google.com/store/apps/details?id=media.dictator), [dictator.media](https://dictator.media)). It accepts `POST` JSON from Dictator, validates `Authorization: Bearer`, logs each event in detail, and saves audio attachments to disk.
 
 Payload field reference lives in the Dictator app (Settings → webhook guide) and on [dictator.media](https://dictator.media).
 
@@ -16,6 +16,8 @@ docker compose up --build
 Webhook URL for Dictator: `http://localhost:3000/webhook` (use HTTPS + a public tunnel in production).
 
 ## Dictator app
+
+Install from [Google Play](https://play.google.com/store/apps/details?id=media.dictator), then:
 
 1. Settings → **Own system**
 2. Enable webhook integration
