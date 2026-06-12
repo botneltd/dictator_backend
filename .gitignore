@@ -1,3 +1,6 @@
+# Webhook audio output
+data/
+
 # Logs
 logs
 *.log
