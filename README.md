@@ -3,7 +3,7 @@ Freedom to dictate!
 
 Reference webhook receiver for the [Dictator](https://play.google.com/store/apps/details?id=media.dictator) app ([Google Play](https://play.google.com/store/apps/details?id=media.dictator), [dictator.media](https://dictator.media)). It accepts `POST` JSON from Dictator, validates `Authorization: Bearer`, logs each event in detail, and saves audio attachments to disk.
 
-Payload field reference lives in the Dictator app (Settings → webhook guide) and on [dictator.media](https://dictator.media).
+Payload field reference: **[docs/webhook/README.md](docs/webhook/README.md)** (vendor-neutral spec with curl examples). The Dictator app also ships a developer mirror at `dictator/docs/WEBHOOK_PAYLOAD.md`.
 
 ## Quick start
 
