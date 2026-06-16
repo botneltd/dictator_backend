@@ -11,6 +11,8 @@ Dictator can POST JSON to a URL you configure in the app (**Settings → Own sys
 3. Set **Webhook URL** (HTTPS recommended) and **API key** (shared secret).
 4. Implement `POST` on your server; branch on the `type` field in each JSON body.
 
+**Subscription:** Webhook integration requires a **Personal** or **Professional** subscription in the app. With a free tier, the app does not send webhook requests even when URL and API key are configured.
+
 Optional toggles in the app:
 
 | Setting | Effect |

@@ -1,6 +1,15 @@
 # `recording_saved`
 
-Sent after Dictator persists a recording locally (when webhook is enabled with valid URL + API key).
+Sent after Dictator persists a recording locally (when webhook is enabled with valid URL + API key, and the user has a **Personal** or **Professional** subscription).
+
+## Two-phase delivery (basic / audio-only file saves)
+
+When the user stops a **basic** or **audio-only** recording **without** live transcription, the app may send **`recording_saved` twice**:
+
+1. **Immediately after stop** — metadata only (`recording` object, no `transcript`). Audio may be attached if enabled.
+2. **After transcription** — when the user runs async transcription from the recording detail screen (or when live STT completes on stop in other modes), a second `recording_saved` includes the `transcript` object.
+
+Your server should upsert by `recording.id` and treat later messages as updates, not duplicates to ignore.
 
 ## Root fields
 

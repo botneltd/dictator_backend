@@ -2,6 +2,8 @@
 
 Streaming updates while the user records with **live STT** enabled and **Send transcripts to webhook in real time** turned on in Settings.
 
+Applies during **real-time / interpret-speech** recording and **basic mode with live transcript** (translate speech while recording). Requires a **Personal** or **Professional** subscription.
+
 Same URL and `Authorization: Bearer` as `recording_saved`. Correlate with `recordingId`; a final `recording_saved` arrives after stop.
 
 ## Fields
