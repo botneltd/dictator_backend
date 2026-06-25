@@ -1,7 +1,13 @@
 # Dictator 
 Freedom to dictate!
 
-Reference webhook receiver for the [Dictator](https://play.google.com/store/apps/details?id=media.dictator) app ([Google Play](https://play.google.com/store/apps/details?id=media.dictator), [dictator.media](https://dictator.media)). It accepts `POST` JSON from Dictator, validates `Authorization: Bearer`, logs each event in detail, and saves audio attachments to disk.
+This is an reference webhook receiver backebd for the [Dictator](https://play.google.com/store/apps/details?id=media.dictator) app ([Google Play](https://play.google.com/store/apps/details?id=media.dictator), [dictator.media](https://dictator.media)). 
+
+# NOTE: 
+
+This code is not properly tested, it is generated with few prompts using cheapest model out there at the time. It is an example. You can of course and you should implement one of your own as you like.
+
+It accepts `POST` JSON from Dictator, validates `Authorization: Bearer`, logs each event in detail, and saves audio attachments to disk.
 
 Payload field reference: **[docs/webhook/README.md](docs/webhook/README.md)** (vendor-neutral spec with curl examples). The Dictator app also ships a developer mirror at `dictator/docs/WEBHOOK_PAYLOAD.md`.
 
