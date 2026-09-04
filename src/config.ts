@@ -1,4 +1,4 @@
-function requireEnv(name: string): string {
+export function requireEnv(name: string): string {
   const value = process.env[name]?.trim();
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`);
@@ -6,7 +6,7 @@ function requireEnv(name: string): string {
   return value;
 }
 
-function parsePositiveInt(value: string | undefined, fallback: number): number {
+export function parsePositiveInt(value: string | undefined, fallback: number): number {
   if (!value) return fallback;
   const parsed = Number.parseInt(value, 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
