@@ -1,8 +1,8 @@
 import Fastify from 'fastify';
 import { registerWebhookRoutes } from './routes/webhook.js';
-import { config } from './config.js';
+import type { AppConfig } from './config.js';
 
-export async function buildServer() {
+export async function buildServer(config: AppConfig) {
   const app = Fastify({
     logger: {
       level: config.logLevel,

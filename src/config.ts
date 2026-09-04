@@ -1,5 +1,14 @@
-export function requireEnv(name: string): string {
-  const value = process.env[name]?.trim();
+export type AppConfig = {
+  port: number;
+  webhookApiKey: string;
+  dataDir: string;
+  bodyLimitMb: number;
+  logLevel: string;
+  logRealtimeLevel: string;
+};
+
+export function requireEnv(name: string, env: NodeJS.ProcessEnv = process.env): string {
+  const value = env[name]?.trim();
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`);
   }
@@ -12,11 +21,13 @@ export function parsePositiveInt(value: string | undefined, fallback: number): n
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
-export const config = {
-  port: parsePositiveInt(process.env.PORT, 3000),
-  webhookApiKey: requireEnv('WEBHOOK_API_KEY'),
-  dataDir: process.env.DATA_DIR?.trim() || '/app/data',
-  bodyLimitMb: parsePositiveInt(process.env.BODY_LIMIT_MB, 25),
-  logLevel: process.env.LOG_LEVEL?.trim() || 'info',
-  logRealtimeLevel: process.env.LOG_REALTIME_LEVEL?.trim() || 'debug',
-};
+export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
+  return {
+    port: parsePositiveInt(env.PORT, 3000),
+    webhookApiKey: requireEnv('WEBHOOK_API_KEY', env),
+    dataDir: env.DATA_DIR?.trim() || '/app/data',
+    bodyLimitMb: parsePositiveInt(env.BODY_LIMIT_MB, 25),
+    logLevel: env.LOG_LEVEL?.trim() || 'info',
+    logRealtimeLevel: env.LOG_REALTIME_LEVEL?.trim() || 'debug',
+  };
+}
